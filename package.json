@@ -1,0 +1,51 @@
+{
+  "name": "tells-check",
+  "version": "0.1.0",
+  "description": "Deterministic checker for the patterns that make writing read as AI-generated: em-dashes, stock AI vocabulary, engagement bait, rule-of-three padding, British spelling.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "tells-check": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "ai",
+    "writing",
+    "lint",
+    "em-dash",
+    "copywriting",
+    "cli",
+    "validator"
+  ],
+  "author": "Playground Giants (https://playgroundgiants.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alittlenerdy/tells-check.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.7",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
